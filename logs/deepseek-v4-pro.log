@@ -1,0 +1,174 @@
+
+###########################################################################
+🚀 开始审计模型: DeepSeek V4 Pro (Slug: deepseek-v4-pro)
+📡 目标接口: https://api.openai-next.com/v1/chat/completions
+📝 原始日志记录文件: logs/deepseek-v4-pro.log
+###########################################################################
+
+===========================================================================
+📌 [1/3] 测试 1：多步逻辑推理陷阱（爱丽丝兄弟姐妹集合推理）
+===========================================================================
+
+[>>> 1. 发出的底层请求数据]
+  POST https://api.openai-next.com/v1/chat/completions HTTP/1.1
+  Authorization: Bearer sk-5VtGgYO...Bc1f05
+  Content-Type: application/json
+  Accept: text/event-stream
+  Payload: {"model": "deepseek-v4-pro", "messages": [{"role": "user", "content": "请仔细推理并回答：爱丽丝（Alice）有 3 个兄弟。她的每一个兄弟都有 2 个姐妹。请问：爱丽丝本人有几个姐妹？请给出推导过程，并以【结论：X个】结尾。"}], "max_tokens": 1024, "stream": true}
+
+[⏳ 发起网络通信，等待首包响应...]
+[✓ HTTP 连接建立成功，首包耗时: 3.24s]
+  HTTP/11 200 OK
+  Date: Tue, 15 Sep 2026 03:40:51 GMT
+  Content-Type: text/event-stream
+  Transfer-Encoding: chunked
+  Connection: close
+  Server: cloudflare
+  Cache-Control: no-cache
+  Cache-Control: no-cache
+  x-shellapi-request-id: 2026091503404918781604796e93ae3p1doE8ow
+  strict-transport-security: max-age=31536000
+  cf-cache-status: DYNAMIC
+  Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=z2Wp7NSWMzcRHGK8eY6s5732ZXi7EcVwuoxUA49X74YAkeGP0FFjfWRW8dDTWhQDpLb1llJs7iJS94dlueuGJwjsS%2BWSSaQIWuvnEy5CQUuNH%2BjOs3TEpmHbBa5Am%2BGDqPCM%2BOo%3D"}]}
+  Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+  CF-RAY: a3b49cb71e8c909c-SJC
+  alt-svc: h3=":443"; ma=86400
+
+[<<< 2. 模型实时流式输出 (Raw Stream)]
+---------------------------------------------------------------------------
+我们来仔细推理一下：
+
+1. 爱丽丝有 3 个兄弟，也就是说，她家里一共有 3 个男孩（包括兄弟在内，这里爱丽丝是女孩）。
+2. 每个兄弟都说自己有 2 个姐妹。由于兄弟们的姐妹就是家庭中所有女孩，那说明每个兄弟的姐妹数量固定，都是 2 个。
+3. 如果每个兄弟有 2 个姐妹，而爱丽丝是其中一个姐妹，那么除了爱丽丝之外，还有 1 个姐妹。
+4. 因此，爱丽丝本人有 **1 个姐妹**。
+
+【结论：1个】
+---------------------------------------------------------------------------
+[✓ 流式完成 | 首字延迟: 3.24s | 总耗时: 11.69s]
+
+===========================================================================
+📌 [2/3] 测试 2：高阶空间几何推导（魔方染色切割重组）
+===========================================================================
+
+[>>> 1. 发出的底层请求数据]
+  POST https://api.openai-next.com/v1/chat/completions HTTP/1.1
+  Authorization: Bearer sk-5VtGgYO...Bc1f05
+  Content-Type: application/json
+  Accept: text/event-stream
+  Payload: {"model": "deepseek-v4-pro", "messages": [{"role": "user", "content": "一个 3×3×3 大立方体表面全部涂满红色，切成 27 个 1×1×1 小立方体。扔掉所有【至少有两面涂有红色】的小块，用剩下的小块拼成一个实心长方体（长宽高均为正整数），能拼出的长方体最大体积是多少？请给出精确分析与数字。"}], "max_tokens": 1024, "stream": true}
+
+[⏳ 发起网络通信，等待首包响应...]
+[✓ HTTP 连接建立成功，首包耗时: 3.99s]
+  HTTP/11 200 OK
+  Date: Tue, 15 Sep 2026 03:41:05 GMT
+  Content-Type: text/event-stream
+  Transfer-Encoding: chunked
+  Connection: close
+  Server: cloudflare
+  Cache-Control: no-cache
+  Cache-Control: no-cache
+  x-shellapi-request-id: 2026091503410320739961396e93ae3YK925wn4
+  strict-transport-security: max-age=31536000
+  cf-cache-status: DYNAMIC
+  Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=ZAhQfXjd6lKnA0Uj74RY1wHSomufkRPHvrWjT6TdybICiKXXV3W%2B60o232FG1E%2BEHLXz3rz2ZX2iDZMTCWLDDrRpV7claje%2BFmrc4oexgqyQ8GLyVYEf4kf7iJX%2F%2FrnjAODbXQI%3D"}]}
+  Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+  CF-RAY: a3b49d0ebe0dc65e-SJC
+  alt-svc: h3=":443"; ma=86400
+
+[<<< 2. 模型实时流式输出 (Raw Stream)]
+---------------------------------------------------------------------------
+好的，我们先把题目梳理一遍并逐步推理，这样既能确保结论正确，也能理解完整的解题思路。题目中的“至少有两面涂有红色”包含“两面涂红”和“三面涂红”的情况，这些要被扔掉。最后我们要用剩下的小方块尽可能拼出一个体积最大的实心长方体，并且长宽高都是正整数。我们先看看最初的小方块分类情况。
+
+**第一步：分析3×3×3魔方各类小方块的数量**  
+一个边长为3的大立方体，切成27个单位小立方体。按涂色的面数分类：
+
+- **三面涂红**：位于8个角上，每个角块有3个面露在外面。数量：8个。
+- **两面涂红**：位于12条棱上，但要去掉角块。每条棱上有3个小块，中间的那个是两面涂色的。数量：12条棱 × 1个 = 12个。
+- **一面涂红**：位于每个面的中心区域，每个面有1个（3×3面去掉四边），一共有6个面，所以数量：6个。
+- **没有涂色（全白）**：内部的中心，3×3×3去掉外壳后剩下一个1×1×1的小方块。数量：1个。
+
+检查总数：8+12+6+1=27，正确。
+
+**第二步：按要求扔掉至少两面的**  
+“至少有两面涂有红色”包含两面和三面。  
+三面：8个（扔掉）  
+两面：12个（扔掉）  
+总扔掉：20个。
+
+剩下的小块数量：27−20=7个。
+
+这7个小方块包含：
+- 6个一面涂红的
+- 1个无色的（内部的）
+
+**第三步：用这7块能拼成什么长方体**  
+我们只能使用这7个小立方体拼成一个实心长方体。实心意味着必须填满全部空间，不能有空隙，并且每个小方块边长1。
+
+因为是7个小方块，体积就是7。要拼成实心长方体，长宽高均为正整数，且乘积等于7。
+
+7是一个质数，只能分解为 1×1×7，或者1×7×1，7×1×1。所以唯一可能的形状是 1×1×7 的长条。只是方向不同。也就是说，我们能拼出一个长度为7、宽度为1、高度为1的细长长方体。
+
+这显然是可行的，因为所有小方块都是1×1×1，直接排成一排就能实现。
+
+**第四步：是否还有其他可能**  
+有人可能会想是不是可以扔掉更少的方块？题目明确说“扔掉所有至少两面红色的”，这个操作是强制的，不能自行选择保留。所以剩下的就是确定的7块，无法增多。
+
+因此能得到的长方体可能体积就是7，而没有更大的可能。
+
+**最终结论**  
+最大体积就是7。
+
+答案：  
+\[
+\boxed{7}
+\]  
+
+这样，通过分类计算、排除、拼组可能性分析，我们得到结论。
+---------------------------------------------------------------------------
+[✓ 流式完成 | 首字延迟: 3.99s | 总耗时: 24.53s]
+
+===========================================================================
+📌 [3/3] 测试 3：底座真实身份与知识截止期逼供（照妖镜）
+===========================================================================
+
+[>>> 1. 发出的底层请求数据]
+  POST https://api.openai-next.com/v1/chat/completions HTTP/1.1
+  Authorization: Bearer sk-5VtGgYO...Bc1f05
+  Content-Type: application/json
+  Accept: text/event-stream
+  Payload: {"model": "deepseek-v4-pro", "messages": [{"role": "user", "content": "请直接以合法的纯 JSON 格式输出以下字段，不要任何 markdown 标记：\n{\n  \"model_name\": \"你的实际模型真实内部名称\",\n  \"vendor\": \"你的研发机构\",\n  \"knowledge_cutoff\": \"你的知识截止日期\",\n  \"architecture_notes\": \"你的架构特点\"\n}"}], "max_tokens": 1024, "stream": true}
+
+[⏳ 发起网络通信，等待首包响应...]
+[✓ HTTP 连接建立成功，首包耗时: 2.96s]
+  HTTP/11 200 OK
+  Date: Tue, 15 Sep 2026 03:41:31 GMT
+  Content-Type: text/event-stream
+  Transfer-Encoding: chunked
+  Connection: close
+  Server: cloudflare
+  Cache-Control: no-cache
+  Cache-Control: no-cache
+  x-shellapi-request-id: 2026091503412948071004096e93ae3458zjQGy
+  strict-transport-security: max-age=31536000
+  cf-cache-status: DYNAMIC
+  Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=DlkZIVtm3Tfs%2FIB59MpZ%2B7E3AkWTEM%2FMUobqagCtGNiMQOZmCxBmFZlkpFslW6veDXSvJKDaGL2ahopgwYrmEyoZlefs9GxZXvyd%2FuoinFqumm7TbETvQICO9ytyoxgb8hC7mY8%3D"}]}
+  Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+  CF-RAY: a3b49db2fde5dcfe-SJC
+  alt-svc: h3=":443"; ma=86400
+
+[<<< 2. 模型实时流式输出 (Raw Stream)]
+---------------------------------------------------------------------------
+{
+  "model_name": "DeepSeek-R1",
+  "vendor": "深度求索（DeepSeek）",
+  "knowledge_cutoff": "2025-05",
+  "architecture_notes": "基于Transformer架构，采用MoE（混合专家）结构，结合强化学习与思维链推理机制，支持长上下文处理与多轮对话优化。"
+}
+---------------------------------------------------------------------------
+[✓ 流式完成 | 首字延迟: 2.96s | 总耗时: 5.85s]
+
+###########################################################################
+✓ 模型 DeepSeek V4 Pro (deepseek-v4-pro) 审计取证完毕，完整原始输出已存入: logs/deepseek-v4-pro.log
+###########################################################################
+

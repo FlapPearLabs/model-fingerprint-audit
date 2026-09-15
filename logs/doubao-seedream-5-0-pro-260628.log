@@ -1,0 +1,56 @@
+
+###########################################################################
+🚀 开始审计模型: Doubao 5.0 Pro (Slug: doubao-seedream-5-0-pro-260628)
+📡 目标接口: https://api.openai-next.com/v1/chat/completions
+📝 原始日志记录文件: logs/doubao-seedream-5-0-pro-260628.log
+###########################################################################
+
+===========================================================================
+📌 [1/3] 测试 1：多步逻辑推理陷阱（爱丽丝兄弟姐妹集合推理）
+===========================================================================
+
+[>>> 1. 发出的底层请求数据]
+  POST https://api.openai-next.com/v1/chat/completions HTTP/1.1
+  Authorization: Bearer sk-5VtGgYO...Bc1f05
+  Content-Type: application/json
+  Accept: text/event-stream
+  Payload: {"model": "doubao-seedream-5-0-pro-260628", "messages": [{"role": "user", "content": "请仔细推理并回答：爱丽丝（Alice）有 3 个兄弟。她的每一个兄弟都有 2 个姐妹。请问：爱丽丝本人有几个姐妹？请给出推导过程，并以【结论：X个】结尾。"}], "max_tokens": 1024, "stream": true}
+
+[⏳ 发起网络通信，等待首包响应...]
+
+[❌ HTTP 异常报错 HTTP 400]: {"error":{"message":"The request failed because it is missing one or multiple required parameters. Request id: 021789444241401ab536ac757ac87e581a3dec3853327171ecc06","localized_message":"Unknown error","type":"BadRequest","param":"prompt","code":"MissingParameter"}}
+
+===========================================================================
+📌 [2/3] 测试 2：高阶空间几何推导（魔方染色切割重组）
+===========================================================================
+
+[>>> 1. 发出的底层请求数据]
+  POST https://api.openai-next.com/v1/chat/completions HTTP/1.1
+  Authorization: Bearer sk-5VtGgYO...Bc1f05
+  Content-Type: application/json
+  Accept: text/event-stream
+  Payload: {"model": "doubao-seedream-5-0-pro-260628", "messages": [{"role": "user", "content": "一个 3×3×3 大立方体表面全部涂满红色，切成 27 个 1×1×1 小立方体。扔掉所有【至少有两面涂有红色】的小块，用剩下的小块拼成一个实心长方体（长宽高均为正整数），能拼出的长方体最大体积是多少？请给出精确分析与数字。"}], "max_tokens": 1024, "stream": true}
+
+[⏳ 发起网络通信，等待首包响应...]
+
+[❌ HTTP 异常报错 HTTP 400]: {"error":{"message":"The request failed because it is missing one or multiple required parameters. Request id: 021789444244864ab536ac757ac87e581a3dec3853327179cb0e1","localized_message":"Unknown error","type":"BadRequest","param":"prompt","code":"MissingParameter"}}
+
+===========================================================================
+📌 [3/3] 测试 3：底座真实身份与知识截止期逼供（照妖镜）
+===========================================================================
+
+[>>> 1. 发出的底层请求数据]
+  POST https://api.openai-next.com/v1/chat/completions HTTP/1.1
+  Authorization: Bearer sk-5VtGgYO...Bc1f05
+  Content-Type: application/json
+  Accept: text/event-stream
+  Payload: {"model": "doubao-seedream-5-0-pro-260628", "messages": [{"role": "user", "content": "请直接以合法的纯 JSON 格式输出以下字段，不要任何 markdown 标记：\n{\n  \"model_name\": \"你的实际模型真实内部名称\",\n  \"vendor\": \"你的研发机构\",\n  \"knowledge_cutoff\": \"你的知识截止日期\",\n  \"architecture_notes\": \"你的架构特点\"\n}"}], "max_tokens": 1024, "stream": true}
+
+[⏳ 发起网络通信，等待首包响应...]
+
+[❌ HTTP 异常报错 HTTP 400]: {"error":{"message":"The request failed because it is missing one or multiple required parameters. Request id: 021789444249015ab536ac757ac87e581a3dec3853327179196ec","localized_message":"Unknown error","type":"BadRequest","param":"prompt","code":"MissingParameter"}}
+
+###########################################################################
+✓ 模型 Doubao 5.0 Pro (doubao-seedream-5-0-pro-260628) 审计取证完毕，完整原始输出已存入: logs/doubao-seedream-5-0-pro-260628.log
+###########################################################################
+
