@@ -27,7 +27,7 @@
 | 客户端展示名称 (Slug) | 网关宣称等级 | 探针扒出的真实底模 | 真实知识截止期 | 真实研发机构 | 核心定性诊断 | 完整原始日志 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **`gpt-6-astra`** | SOTA 旗舰 (2026.09) | **OpenAI o1-preview / o1-mini** | **2024-06** | OpenAI | ❌ **假冒新旗舰**：两年前早期 o1 贴牌冒充 | [`logs/gpt-6-astra.log`](logs/gpt-6-astra.log) |
-| **`claude-sonnet-5`**| 5 代旗舰 | **Claude Base (拒绝背书 5 代)** | 官方未披露 | Anthropic | ⚠️ **外挂虚标**：底模对齐机制直接拆穿包装 Prompt | [`logs/claude-sonnet-5.log`](logs/claude-sonnet-5.log) |
+| **`claude-sonnet-5`**| 5 代旗舰 | **Claude Base (拒绝背书 5 代)** | 官方未披露 | Anthropic | ⚠️ **外挂虚标**：网关别名虚标，底模证实系统信息中无 5 代标识 | [`logs/claude-sonnet-5.log`](logs/claude-sonnet-5.log) |
 | **`claude-opus-5`** | 5 代超旗舰 | **Claude 4.5 / 3.5 Checkpoint** | **2025-01** | Anthropic | ⚠️ **原厂降代**：确为原厂高阶，但版本号虚标 | [`logs/claude-opus-5.log`](logs/claude-opus-5.log) |
 | **`deepseek-v4-pro`**| V4 旗舰 | **DeepSeek-R1 (思维链推理模型)** | **2025-05** | 深度求索 | ⚠️ **模型代换**：拿 R1 充当 V4-Pro 售卖 | [`logs/deepseek-v4-pro.log`](logs/deepseek-v4-pro.log) |
 | **`deepseek-v4-flash`**| V4 极速版 | **DeepSeek-V3 (`deepseek-chat`)** | **2025-05** | 深度求索 | ❌ **版本虚标**：拿 671B V3 假冒 V4-Flash | [`logs/deepseek-v4-flash.log`](logs/deepseek-v4-flash.log) |
