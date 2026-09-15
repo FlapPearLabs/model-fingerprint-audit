@@ -4,7 +4,7 @@
 [![Audit Status](https://img.shields.io/badge/Audit-Completed-success.svg)]()
 [![Date](https://img.shields.io/badge/Date-2026--09--15-orange.svg)]()
 
-一个用于对第三方大模型聚合 API（API Resellers / 中转网关）进行**模型验真、底模指纹探测、版本虚标审计与降配路由追踪**的完整工具包与实测证据库。
+一个用于对第三方大模型聚合 API（API Resellers / 中转网关）进行**模型验真、底模指纹探测、版本虚标审计与降配路由追踪**的完整工具包与实测取证库。
 
 ---
 
@@ -16,7 +16,7 @@
 
 中转服务商往往通过定制 System Prompt、挂接廉价思考前缀等方式，将两三年前的老旧模型或低成本开源权重重新包装为最新的超大模型对外售卖。
 
-本项目利用**大模型物理级指纹特征（特殊控制 Token、知识截止边界、Tokenizer 细节行为、推理复杂度分界）**，彻底剥除包装，扒出背后的真实底模。
+本项目利用**大模型物理级指纹特征（特殊控制 Token、知识截止边界、Tokenizer 细节行为、推理复杂度分界）**，彻底剥除包装，扒出背后的真实底模，并提供**全链路底层报文与实时流式输出**进行公开取证。
 
 ---
 
@@ -35,62 +35,54 @@
 | **`kimi-k3`** | Moonshot 思考版 | **Kimi 早期底模** | **2024-06** | ❌ **套壳挂思维**：知识截止停在 2024 年中 |
 | **`doubao-seedream...`**| 字节跳动 5.0 | **SeaDream 图像生成 API** | N/A | ❌ **类型错配**：将火山引擎生图接口误挂到对话列表（400 错误） |
 
-> 完整审计取证记录详见：[`reports/audit_report.md`](reports/audit_report.md)
-
----
-
-## 🛠️ 指纹探测核心方法 (Forensic Probes)
-
-1. **特殊控制符诱捕法（Special Token Leak）**：
-   - 探查 `<｜begin of sentence｜>` 或 `<|im_start|>` 等厂商硬编码控制符。开源底座遇到自身特殊标记时会产生不可掩盖的截断或崩溃现象。
-2. **底层元数据与知识截止期逼供（Identity & Cutoff Probe）**：
-   - 绕过表层角色扮演提示词，诱导模型从底层权重参数库中输出真实的 `knowledge_cutoff` 和架构规格。
-3. **思考链心理语言学特征（Thought Trace Stylometry）**：
-   - 分析思考流是 OpenAI Responses 原生摘要，还是 DeepSeek-R1 风格中英混杂碎碎念，或是中转站前端硬拼接的假思考。
-4. **高阶逻辑与注意力穿透力靶题（Reasoning Shibboleths）**：
-   - 爱丽丝姐妹逻辑陷阱（秒杀误读女孩总数的小模型）。
-   - Strawberry 倒序与辅音编码（测试注意力是否在长序列字符上串行）。
-   - 染色立方体切割重组（测试复杂多步空间几何推导）。
-
----
-
-## 🚀 本地快速复现 (Quick Start)
-
-### 1. 配置环境变量
-```bash
-export OPENAI_API_BASE="https://api.openai-next.com/v1"
-export OPENAI_API_KEY="your-api-key-here"
-```
-
-### 2. 运行自动化探针
-```bash
-# 测试指定模型
-python3 scripts/probe_benchmark.py gpt-6-astra deepseek-v4-pro grok-4.6
-
-# 批量测试全部默认模型
-python3 scripts/probe_benchmark.py
-```
-
-测试结果将自动生成格式化 JSON 并保存在 `data/raw/` 目录下。
-
 ---
 
 ## 📂 仓库目录结构
 
 ```text
-├── README.md                      # 项目总览与核心结论速查
-├── LICENSE                        # MIT License
+├── README.md                           # 项目总览与全模型对比总表
+├── LICENSE                             # MIT License
+├── docs/
+│   └── GROUND_TRUTH.md                 # 靶题标准参考答案、数学推导与判准指南
 ├── scripts/
-│   └── probe_benchmark.py         # 自动化指纹探测与靶向测试主脚本
+│   ├── openai_sdk_stream_test.py      # 官方 OpenAI SDK 原生流式测试脚本 (最简最直观)
+│   ├── raw_api_inspector.py            # 底层 HTTP 请求头/响应头/流式 SSE 全报文检查器
+│   └── probe_benchmark.py              # 批量多模型自动化指纹探针套件
+├── logs/                               # 未经任何删改的第一手真实终端运行日志
+│   ├── openai_sdk_stream_run.log       # 官方 OpenAI SDK 流式运行全量终端日志
+│   └── user_terminal_wire_inspector_run.log  # Wire-Level 检查器运行全量底层报文日志
 ├── reports/
-│   └── audit_report.md            # 详尽的取证日志与逐个模型深度剖析
+│   └── audit_report.md                 # 详尽取证分析报告（逐个模型技术剖析）
 └── data/
-    └── raw/                       # 原始第一手 JSON 响应证据
+    └── raw/                            # 自动化批处理原始 JSON 响应数据
         ├── round1_gpt6_deepseek.json
         └── round2_batch_models.json
 ```
 
 ---
 
-## 🔒 隐私与安全性申明
-本项目开源的所有测试原始日志及测试脚本中，已严格剥离所有个人 API Token 及敏感认证信息。测试数据均来源于标准接口返回。
+## 🚀 终端复现测试指南
+
+### 方法 1：使用官方 OpenAI SDK 原生流式测试（最简推荐）
+直接调用 `openai` Python SDK，实时查看思考过程（Reasoning）与流式作答：
+
+```bash
+# 使用 uv 一键拉起 SDK 并运行（无需污染系统环境）
+uv run --with openai --with httpx python3 scripts/openai_sdk_stream_test.py
+```
+
+### 方法 2：使用 Wire-Level 底层报文检查器
+查看完整的底层网络协议传输（`POST` 请求行、完整的 `Request Headers`、`Payload JSON`、服务端返回的全部 `Response Headers`、以及逐字接收的 SSE 流）：
+
+```bash
+python3 scripts/raw_api_inspector.py
+```
+
+### 🎯 验证与判准说明
+为了保证测试终端的纯净性与可信度，**终端执行时绝不打印答案干扰**。所有测试题目的标准推导及判题规则已统一归档于文档：
+👉 **[docs/GROUND_TRUTH.md](docs/GROUND_TRUTH.md)**
+
+---
+
+## 🔒 真实性与可信度申明
+本项目所有在 `logs/` 下存放的日志均为现场真实执行捕获，保留了 Cloudflare `CF-RAY` 标识、上游聚合调度头（`x-shellapi-request-id`）、首包延迟与真实首字吐出时间戳，保证取证链条 100% 真实、客观、可复现。
