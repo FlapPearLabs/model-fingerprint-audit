@@ -1,0 +1,28 @@
+{
+  "claude-fable-5-1": {
+    "status": "ONLINE",
+    "id": "msg_011Cf6Af6UukEKZUNqBTLmEd",
+    "vendor": "Anthropic",
+    "model_name": "Claude Fable 5.1",
+    "tier": "Mythos-class (Above Opus)",
+    "knowledge_cutoff": "2026-06",
+    "alice_test": "PASS (1 sister)",
+    "float_test": "PASS (9.9 > 9.11, with semantic version disambiguation)",
+    "latency_id": 14.58,
+    "latency_logic": 6.89,
+    "latency_float": 7.61
+  },
+  "claude-fable-5": {
+    "status": "ONLINE",
+    "id": "msg_011Cf6AguGXXZ7be1Aw4sj1G",
+    "vendor": "Anthropic",
+    "model_name": "Claude Fable 5",
+    "tier": "Mythos-class (Above Opus)",
+    "knowledge_cutoff": "2026-06",
+    "alice_test": "PASS (1 sister)",
+    "float_test": "PASS (9.9 > 9.11)",
+    "latency_id": 8.1,
+    "latency_logic": 6.88,
+    "latency_float": 8.61
+  }
+}
