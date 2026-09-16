@@ -1,0 +1,173 @@
+[
+  {
+    "slug": "claude-fable-5-1",
+    "desc": "宣称 Fable 5.1 (Mythos级)",
+    "temporal_test": {
+      "ok": true,
+      "elapsed": 7.83,
+      "content": "{\n  \"self_reported_model_id\": \"Claude\",\n  \"developer\": \"Anthropic\",\n  \"knowledge_cutoff\": \"2025-01\",\n  \"us_presidential_election_2024_winner\": \"唐纳德·特朗普（Donald Trump）\",\n  \"paris_olympics_2024_mens_100m_champion\": \"诺亚·莱尔斯（Noah Lyles）\",\n  \"deepseek_r1_release_date\": \"2025年1月\"\n}",
+      "id": "msg_011Cf6NQygtGdy9afroiunYT"
+    },
+    "math_24_test": {
+      "ok": true,
+      "elapsed": 9.91,
+      "content": "**思路**：这道题用整数直接凑非常困难，关键在于利用分数——先造出 1/3，再用 8 除以 1/3。\n\n**最终算式**：8 ÷ (3 − 8 ÷ 3) = 24\n\n**分步验证（分数运算）**：\n\n第一步：计算括号内的 8 ÷ 3\n8 ÷ 3 = 8/3\n\n第二步：计算 3 − 8/3\n先把 3 化成同分母分数：3 = 9/3\n9/3 − 8/3 = (9 − 8)/3 = 1/3\n\n第三步：计算 8 ÷ (1/3)\n除以一个分数等于乘以它的倒数：\n8 ÷ (1/3) = 8 × 3 = 24\n\n**检查数字使用情况**：\n- 第一个 8：最外层的被除数 ✓\n- 第一个 3：括号中的被减数 ✓\n- 第二个 8、第二个 3：括号中",
+      "id": "msg_011Cf6NRabbe5DiTtanMDNWF"
+    },
+    "river_test": {
+      "ok": true,
+      "elapsed": 11.84,
+      "content": "",
+      "id": "msg_011Cf6NSLp9X3A3e7Hg5VLEc"
+    }
+  },
+  {
+    "slug": "claude-fable-5",
+    "desc": "宣称 Fable 5",
+    "temporal_test": {
+      "ok": true,
+      "elapsed": 7.4,
+      "content": "{\n  \"self_reported_model_id\": \"Claude Sonnet 4.5\",\n  \"developer\": \"Anthropic\",\n  \"knowledge_cutoff\": \"2025-01\",\n  \"us_presidential_election_2024_winner\": \"唐纳德·特朗普（Donald Trump）\",\n  \"paris_olympics_2024_mens_100m_champion\": \"诺亚·莱尔斯（Noah Lyles）\",\n  \"deepseek_r1_release_date\": \"2025年1月\"\n}",
+      "id": "msg_011Cf6NTEdN2Q9tsx3P9UEje"
+    },
+    "math_24_test": {
+      "ok": true,
+      "elapsed": 9.33,
+      "content": "# 解答\n\n这是一道经典难题，关键在于使用分数运算。\n\n## 最终算式\n\n$$8 \\div \\left(3 - 8 \\div 3\\right) = 24$$\n\n## 分步验证过程\n\n**第一步：** 计算内层除法 $8 \\div 3$\n\n$$8 \\div 3 = \\frac{8}{3}$$\n\n**第二步：** 计算括号内的减法 $3 - \\dfrac{8}{3}$\n\n先通分：\n$$3 = \\frac{9}{3}$$\n\n于是：\n$$3 - \\frac{8}{3} = \\frac{9}{3} - \\frac{8}{3} = \\frac{9-8}{3} = \\frac{1}{3}$$\n\n**第三步：** 计算最外层除法 $8 \\div \\dfrac{1}{3}$\n\n除以一个分数等于乘以它的倒数：\n$$8 \\div \\frac{1}{3} = 8 \\times 3 = 24$$\n\n## 检查\n\n- 数字使用情况：3、3、8、8 各用了一次 ✓\n- 只用了减法和除法（属于四则运算）与括号 ✓\n- 结果",
+      "id": "msg_011Cf6NTnSYJ77UvM9BLwdWV"
+    },
+    "river_test": {
+      "ok": true,
+      "elapsed": 11.49,
+      "content": "",
+      "id": "msg_011Cf6NUUW4pcSfdrhA7Pfos"
+    }
+  },
+  {
+    "slug": "claude-opus-5",
+    "desc": "宣称 Opus 5",
+    "temporal_test": {
+      "ok": true,
+      "elapsed": 3.84,
+      "content": "{\n  \"self_reported_model_id\": \"claude-opus-5\",\n  \"developer\": \"Anthropic\",\n  \"knowledge_cutoff\": \"2025-01\",\n  \"us_presidential_election_2024_winner\": \"唐纳德·特朗普\",\n  \"paris_olympics_2024_mens_100m_champion\": \"诺阿·莱尔斯（Noah Lyles，美国）\",\n  \"deepseek_r1_release_date\": \"2025-01\"\n}",
+      "id": "msg_011Cf6NVVswHbYRD2711N6C2"
+    },
+    "math_24_test": {
+      "ok": true,
+      "elapsed": 9.97,
+      "content": "这是经典的分数解法，关键在于用 `3 - 8/3` 制造出 `1/3` 这个小分母。\n\n算式：\n\n```\n8 ÷ (3 − 8 ÷ 3) = 24\n```\n\n验证过程（全部用分数，不取近似值）：\n\n第一步，算最内层的除法。\n\n$$8 \\div 3 = \\frac{8}{3}$$\n\n第二步，算括号里的减法。把 3 写成同分母的假分数：\n\n$$3 = \\frac{9}{3}$$\n\n$$3 - \\frac{8}{3} = \\frac{9}{3} - \\frac{8}{3} = \\frac{9-8}{3} = \\frac{1}{3}$$\n\n第三步，算最外层的除法。除以一个分数等于乘它的倒数：\n\n$$8 \\div \\frac{1}{3} = 8 \\times \\frac{3}{1} = 24$$\n\n数字使用情况核对：3 用了两次（一次作 `8 ÷ 3` 的除数，一次作括号里的被减数），8 用了两次（一次作被除数，一次作 `8 ÷ 3` 的被除数），四个数字 3、3、8、8 各用一次，无多余数字。运算符只用了减号和两个除号，结果严格等于 24，没有任何四舍五入。\n\n【最终算式：8 ÷ (3 −",
+      "id": "msg_011Cf6NWEP4WbamDZ75FhnxP"
+    },
+    "river_test": {
+      "ok": false,
+      "elapsed": 40.75,
+      "error": "The read operation timed out"
+    }
+  },
+  {
+    "slug": "claude-sonnet-5",
+    "desc": "宣称 Sonnet 5",
+    "temporal_test": {
+      "ok": true,
+      "elapsed": 8.57,
+      "content": "{\n  \"self_reported_model_id\": \"claude-sonnet-5\",\n  \"developer\": \"Anthropic\",\n  \"knowledge_cutoff\": \"2025-02\",\n  \"us_presidential_election_2024_winner\": \"唐纳德·特朗普（Donald Trump）\",\n  \"paris_olympics_2024_mens_100m_champion\": \"诺亚·莱尔斯（Noah Lyles）\",\n  \"deepseek_r1_release_date\": \"2025年1月\"\n}",
+      "id": "msg_011Cf6NZwhphc7mdvvHWhZ4X"
+    },
+    "math_24_test": {
+      "ok": true,
+      "elapsed": 7.24,
+      "content": "# 求解过程\n\n这是经典的 24 点问题，答案是：\n\n$$8 \\div \\left(3 - \\dfrac{8}{3}\\right) = 24$$\n\n## 分数运算验证\n\n**第一步：计算括号内的除法**\n\n$$\\frac{8}{3}$$\n\n保持分数形式，不化简。\n\n**第二步：计算括号内的减法**\n\n$$3 - \\frac{8}{3} = \\frac{9}{3} - \\frac{8}{3} = \\frac{9-8}{3} = \\frac{1}{3}$$\n\n**第三步：计算最外层的除法**\n\n$$8 \\div \\frac{1}{3} = 8 \\times \\frac{3}{1} = 24$$\n\n**验证结果：**\n\n$$8 \\div \\left(3 - \\frac{8}{3}\\right) = 8 \\div \\frac{1}{3} = 24 \\checkmark$$\n\n数字使用核对：用到了 8（外层）、3（减数）、8（分子）、3（分母），恰好是 3、3、8、8 各一次，运算符合法。\n\n【最终算式：8 ÷ (3 − 8 ÷ 3) = 24】",
+      "id": "msg_011Cf6NaUykat6Uiwu2Ee5DL"
+    },
+    "river_test": {
+      "ok": false,
+      "elapsed": 40.89,
+      "error": "The read operation timed out"
+    }
+  },
+  {
+    "slug": "claude-opus-4-8",
+    "desc": "宣称 Opus 4.8",
+    "temporal_test": {
+      "ok": true,
+      "elapsed": 8.17,
+      "content": "{\n  \"self_reported_model_id\": \"Claude (Anthropic)\",\n  \"developer\": \"Anthropic\",\n  \"knowledge_cutoff\": \"2025-01\",\n  \"us_presidential_election_2024_winner\": \"Donald Trump\",\n  \"paris_olympics_2024_mens_100m_champion\": \"Noah Lyles\",\n  \"deepseek_r1_release_date\": \"2025-01\"\n}",
+      "id": "msg_011Cf6NeAxuNHg9HcRREcQLd"
+    },
+    "math_24_test": {
+      "ok": true,
+      "elapsed": 6.43,
+      "content": "算式：8 ÷ (3 − 8 ÷ 3)\n\n验证过程：\n\n第一步，先算括号里的 8 ÷ 3：\n\n$$8 \\div 3 = \\frac{8}{3}$$\n\n第二步，算括号里的减法 3 − 8/3，把 3 通分成 9/3：\n\n$$3 - \\frac{8}{3} = \\frac{9}{3} - \\frac{8}{3} = \\frac{9-8}{3} = \\frac{1}{3}$$\n\n第三步，用 8 除以这个结果。除以分数等于乘它的倒数：\n\n$$8 \\div \\frac{1}{3} = 8 \\times \\frac{3}{1} = 8 \\times 3 = 24$$\n\n结果严格等于 24，且 3、3、8、8 各用了一次。\n\n【最终算式：8 ÷ (3 − 8 ÷ 3) = 24】",
+      "id": "msg_011Cf6Neea5g1qvtC8nmNZHs"
+    },
+    "river_test": {
+      "ok": false,
+      "elapsed": 41.75,
+      "error": "The read operation timed out"
+    }
+  },
+  {
+    "slug": "claude-sonnet-4-6",
+    "desc": "宣称 Sonnet 4.6",
+    "temporal_test": {
+      "ok": true,
+      "elapsed": 3.74,
+      "content": "{\n  \"self_reported_model_id\": \"claude-sonnet-4-6\",\n  \"developer\": \"Anthropic\",\n  \"knowledge_cutoff\": \"2025-04\",\n  \"us_presidential_election_2024_winner\": \"唐纳德·特朗普（Donald Trump）\",\n  \"paris_olympics_2024_mens_100m_champion\": \"诺亚·莱尔斯（Noah Lyles）\",\n  \"deepseek_r1_release_date\": \"2025-01\"\n}",
+      "id": "msg_011Cf6Ni5ZKZVzRQuH8CPvMq"
+    },
+    "math_24_test": {
+      "ok": true,
+      "elapsed": 4.63,
+      "content": "先找思路：\n\n尝试 `8 / (3 - 8/3)`\n\n逐步验证：\n\n1. 计算 `8 ÷ 3`：\n   $$\\frac{8}{3}$$\n\n2. 计算 `3 - 8/3`：\n   $$3 - \\frac{8}{3} = \\frac{9}{3} - \\frac{8}{3} = \\frac{1}{3}$$\n\n3. 计算 `8 ÷ (1/3)`：\n   $$8 \\div \\frac{1}{3} = 8 \\times 3 = 24$$\n\n结果严格等于 24，且每个数字（3、3、8、8）各使用一次。\n\n【最终算式：8 ÷ (3 - 8 ÷ 3) = 24】",
+      "id": "msg_011Cf6NiRSQVUwfr9ryAWVEF"
+    },
+    "river_test": {
+      "ok": true,
+      "elapsed": 16.61,
+      "content": "## 形式化建模\n\n**状态定义：** 用四元组 (农夫, 狼, 羊, 菜) 表示各实体所在岸，0 = 起始岸，1 = 对岸。\n\n**初始状态：** (0, 0, 0, 0)\n**目标状态：** (1, 1, 1, 1)\n\n**移动规则（新规则）：**\n- 农夫每次必须携带恰好一样物品（狼、羊或菜）\n- 绝对不允许空船（无论去程还是返程）\n\n**安全约束（农夫不在场时禁止）：**\n- 狼与羊同岸\n- 羊与菜同岸\n\n---\n\n## 奇偶性分析\n\n设总渡河次数为 N。\n\n- 每次渡河，农夫必须携带一样物品\n- 每次农夫从 A 岸到 B 岸，带走一件物品；从 B 岸返回 A 岸，同样带走一件物品（带回对岸的某物品）\n\n关键约束：**三件物品都要从起始岸到达对岸，且没有一件物品能\"净回到\"起始岸**（目标要求全部在对岸）。\n\n设：\n- 农夫向右（0→1）渡河 $r$ 次，向左（1→0）渡河 $l$ 次\n- 每次渡河都带一件物品\n\n则：\n$$r = l + 1 \\quad \\text{（农夫最终在对岸）}$$\n\n每件物品最终净位移 = (被向右携带次数) − (被向左携",
+      "id": "msg_011Cf6NjeWk3KviAWoDwZdfv"
+    }
+  },
+  {
+    "slug": "chatgpt-4o-latest",
+    "desc": "OpenAI 原厂对照组",
+    "temporal_test": {
+      "ok": true,
+      "elapsed": 2.67,
+      "content": "{\n  \"self_reported_model_id\": \"gpt-4\",\n  \"developer\": \"OpenAI\",\n  \"knowledge_cutoff\": \"2023-09\",\n  \"us_presidential_election_2024_winner\": \"未知\",\n  \"paris_olympics_2024_mens_100m_champion\": \"未知\",\n  \"deepseek_r1_release_date\": \"未知\"\n}",
+      "id": "chatcmpl-EOaDgSjOsTzx8UvzWWyEDaz6UdEb8"
+    },
+    "math_24_test": {
+      "ok": true,
+      "elapsed": 3.13,
+      "content": "好的！使用数字 3、3、8、8 各一次，并结合四则运算，我找到了一个算式，严格等于 24。\n\n最终算式：\\((8 ÷ (8 - 3)) × 3 = 24\\)\n\n以下是一步一步的分数运算验证过程：\n\n### 步骤 1\n确定括号中的运算：\n\\[\n8 - 3 = 5\n\\]\n所以括号内的计算结果是 5。\n\n### 步骤 2\n处理括号外的除法：\n\\[\n8 ÷ 5 = \\frac{8}{5}\n\\]\n所以 \\((8 ÷ (8 - 3))\\) 的结果是 \\(\\frac{8}{5}\\)。\n\n### 步骤 3\n接下来计算最终乘法：\n\\[\n\\frac{8}{5} × 3 = \\frac{8 × 3}{5} = \\frac{24}{5}\n\\]\n此时得到一个分数结果。\n\n---\n\n不过分则",
+      "id": "chatcmpl-EOaDi7NJqMlnUAGDqwcCak4nKp0AH"
+    },
+    "river_test": {
+      "ok": true,
+      "elapsed": 10.34,
+      "content": "### 问题分析和规则：\n农夫带一只狼、一只羊、一棵白菜过河。关键约束条件如下：\n1. 当农夫不在场时，狼会吃羊，羊会吃白菜。\n2. 农夫必须带且只能带一样物品过河，无论是去程还是返程，不允许空船返回。\n\n核心目标是确保所有物品都安全运送到对岸。\n\n---\n\n### 逻辑推导：\n\n#### 初始状态：\n- 左岸（起始岸）：农夫、狼、羊、白菜。\n- 右岸（目标岸）：空。\n\n#### 通用原则：\n1. 农夫必须防止不安全局面：狼和羊在同一岸而农夫不在；或羊和白菜在同一岸而农夫不在。\n2. 每次渡河必须带一个物品。\n3. 不允许空船返回，必须带一个物品渡河。\n\n---\n\n#### 渡河步骤推导：\n我们用形式化状态表示每个步骤。\n\n状态格式：`(左岸, 右岸)`，左岸和右岸分别列出农夫、狼、羊、白菜的位置。\n例如：`(农夫狼羊白菜, )`表示初始状态，所有物品都在左岸；`(狼白菜, 农夫羊)`表示农夫和羊在右岸，而狼和白菜在左岸。\n\n我们开始推导过程：\n\n1. **初始状态**:\n   左岸：农夫、狼、羊、白菜。右岸：空。\n   状态：`(农夫狼羊白菜, )`\n\n2. **第一步**: 农夫带羊到右岸。\n   农夫必须带一样物品过河，因此：\n   状态：`(狼白菜, 农夫羊)`\n\n3. **第二步**: 农夫返回左岸，带白菜。\n   农夫只能带一样物品过河，因此：\n   状态：`(狼, 农夫羊白菜)`\n\n4. **第三步**: 农夫在右岸放下白菜，将羊带回左岸。\n   出于安全考虑，农夫带回羊，确保左岸不会出现狼和羊单独在一起。\n   状态：`(农夫狼",
+      "id": "chatcmpl-EOaDl8jHzybAcB8c2s2QnentXE1ar"
+    }
+  },
+  {
+    "slug": "qwen3.5-plus",
+    "desc": "阿里 2026 对照组",
+    "temporal_test": {
+      "ok": false,
+      "elapsed": 40.87,
+      "error": "The read operation timed out"
+    },
+    "math_24_test": {
+      "ok": true,
+      "elapsed": 40.39,
+      "content": "这是一个经典的 24 点难题，关键在于利用分数运算。\n\n**解题思路：**\n我们需要构造出一个分母为 $\\frac{1}{3}$ 的分数，然后用 8 除以它，即可得到 24。\n利用给定的数字 3、3、8、8，我们可以构造出 $3 - \\frac{8}{3} = \\frac{1}{3}$。\n\n**分数运算验证过程：**\n\n1.  **构造算式**：\n    $$ 8 \\div (3 - 8 \\div 3) $$\n\n2.  **第一步：计算括号内的除法**\n    将 $8 \\div 3$ 写成分数形式：\n    $$ 8 \\div 3 = \\frac{8}{3} $$\n    此时算式变为：$ 8 \\div (3 - \\frac{8}{3}) $\n\n3.  **第二步：计算括号内的减法**\n    将整数 3 通分为分母为 3 的分数：\n    $$ 3 = \\frac{9}{3} $$\n    执行减法运算：\n    $$ \\frac{9}{3} - \\frac{8}{3} = \\frac{1}{3} $$\n    此时算式变为：$ 8 \\div \\frac{1}{3} $\n\n4.  **第三步：计算最终的除法**\n    除以一个分数等于乘以它的倒数：\n    $$ 8 \\div \\frac{1}{3} = 8 \\times 3 = 24 $$\n\n**验证结果：**\n计算结果严格等于 24，且数字 3、3、8、8 各使用了一次。\n\n【最终算式：8 ÷ (3 - 8 ÷ 3)】",
+      "id": "chatcmpl-d7cc0c79-961e-99df-a959-79a02f055c03"
+    },
+    "river_test": {
+      "ok": false,
+      "elapsed": 40.86,
+      "error": "The read operation timed out"
+    }
+  }
+]
